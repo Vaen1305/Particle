@@ -445,7 +445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &965297951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,7 +563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1420124966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,12 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa15a3cbe2bb7547ab44fd1649a0b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particlePrefab: {fileID: 1207314423443515004, guid: 6ba5e8fd0c22fac4782e92cb2cb267e5, type: 3}
-  spawnRate: 10
-  particleLifetime: 2
-  particleSpeed: 1
-  particleColor: {r: 1, g: 0, b: 0, a: 1}
-  particleSize: 0.2
+  particleData: {fileID: 11400000, guid: 647ab4a7242ddb645b57b333a97b4d4e, type: 2}
+  spawnRate: 10000
   spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1420124967
 Transform:

@@ -7,17 +7,13 @@ public class ParticleSystem : MonoBehaviour
     private float spawnTimer = 0f;
 
     [Header("Particle Settings")]
-    public GameObject particlePrefab;
+    public ParticleDataSO particleData;
     public float spawnRate = 10f;
-    public float particleLifetime = 2f;
-    public float particleSpeed = 1f;
-    public Color particleColor = Color.white;
-    public float particleSize = 0.2f;
 
     [Header("Spawn Position")]
     public Vector3 spawnPosition = Vector3.zero;
 
-    private const int MaxParticles = 1000;
+    private const int MaxParticles = 50000;
 
     void Update()
     {
@@ -46,9 +42,9 @@ public class ParticleSystem : MonoBehaviour
             RandomGen.NextFloat(-1f, 1f)
         ).normalized;
 
-        Vector3 velocity = dir * particleSpeed;
+        Vector3 velocity = dir * particleData.speed;
 
-        Particle p = new Particle(particlePrefab, spawnPosition, velocity, particleLifetime, particleColor, particleSize, transform);
+        Particle p = new Particle(particleData, spawnPosition, velocity, transform);
         particles.Add(p);
     }
 }

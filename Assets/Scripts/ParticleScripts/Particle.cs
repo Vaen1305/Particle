@@ -8,22 +8,24 @@ public class Particle
     public float Lifetime;
     public float Age;
 
-    public Particle(GameObject prefab, Vector3 position, Vector3 velocity, float lifetime, Color color, float size, Transform parent)
+    public Particle(ParticleDataSO data, Vector3 position, Vector3 velocity, Transform parent)
     {
-        GameObject = Object.Instantiate(prefab, position, Quaternion.identity, parent);
+        GameObject = new GameObject("Particle");
         Transform = GameObject.transform;
+        Transform.position = position;
+        Transform.localScale = Vector3.one * data.size;
+        Transform.parent = parent;
+
+        MeshFilter mf = GameObject.AddComponent<MeshFilter>();
+        mf.sharedMesh = data.mesh;
+
+        MeshRenderer mr = GameObject.AddComponent<MeshRenderer>();
+        mr.material = new Material(data.material);
+        mr.material.color = data.color;
+
         Velocity = velocity;
-        Lifetime = lifetime;
+        Lifetime = data.lifetime;
         Age = 0f;
-
-        MeshRenderer mr = GameObject.GetComponent<MeshRenderer>();
-        if (mr != null)
-        {
-            mr.material = new Material(mr.material);
-            mr.material.color = color;
-        }
-
-        Transform.localScale = new Vector3(size, size, size);
     }
 
     public bool IsAlive => Age < Lifetime;

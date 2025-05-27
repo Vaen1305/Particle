@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class BaseProblem : MonoBehaviour
 {
     [Header("Allien Problem")]
+    [SerializeField] protected GameObject Particle;
     [SerializeField] protected int NumberAlliens = 50;
     [SerializeField] protected int NumberBodyParts = 50;
 
