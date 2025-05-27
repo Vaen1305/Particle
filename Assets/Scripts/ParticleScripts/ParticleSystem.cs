@@ -13,7 +13,7 @@ public class ParticleSystem : MonoBehaviour
     [Header("Spawn Position")]
     public Vector3 spawnPosition = Vector3.zero;
 
-    private const int MaxParticles = 50000;
+    [SerializeField] private int MaxParticles = 50000;
 
     void Update()
     {
